@@ -41,12 +41,12 @@ const getCodes = (tree, cb, code = '') => {
     if (!tree) {
         return;
     }
-    if (!tree.left && !tree.right) {
-        cb(tree.char, code);
+    if (!tree.node.children[0] && !tree.node.children[1]) {
+        cb(tree.node.data.v, code);
         return;
     }
-    getCodes(tree.left, cb, code + '0');
-    getCodes(tree.right, cb, code + '1');
+    getCodes(tree.node.children[0], cb, code + '0');
+    getCodes(tree.node.children[1], cb, code + '1');
 };
 /** Relative frequency */
 function getRelativeFrequency(arr) {
@@ -74,13 +74,25 @@ function getCharsFrequency(text) {
 function getTree(freq) {
     const nodes = [];
     for (const [char, weight] of freq) {
-        nodes.push({ char, weight, left: null, right: null });
+        nodes.push({
+            node: {
+                data: { v: char || weight.toString() },
+                eData: { e: weight },
+                children: [],
+            },
+        });
     }
     while (nodes.length > 1) {
-        nodes.sort((a, b) => a.weight - b.weight);
+        nodes.sort((a, b) => a.node.eData.e - b.node.eData.e);
         const left = nodes.shift();
         const right = nodes.shift();
-        const parent = { char: '', weight: left?.weight + right?.weight, left, right };
+        const parent = {
+            node: {
+                data: { v: `${left?.node.eData.e + right?.node.eData.e}` },
+                eData: { e: left?.node.eData.e + right?.node.eData.e },
+                children: [left, right],
+            },
+        };
         nodes.push(parent);
     }
     return nodes[0];

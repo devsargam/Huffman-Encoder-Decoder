@@ -1,8 +1,13 @@
 export interface TreeNode {
-    char: string;
-    weight: number;
-    left: TreeNode | null;
-    right: TreeNode | null;
+    node: {
+        data: {
+            v: string;
+        };
+        eData: {
+            e: number;
+        };
+        children: TreeNode[];
+    };
 }
 /** ENCODE TEXT */
 export declare function encode(text: string, codes: Map<string, string>): Array<string>;

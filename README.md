@@ -1,13 +1,11 @@
 <h1 align="center"><img height="150" src="assets/logo.png" /><br>Huffman coding JS (TypeScript)</h1>
 
-[//]: # (<h2 align="center">)
-
-[//]: # (  <a href="https://kelreel.github.io/huffman-javascript/">DEMO</a>)
-
-[//]: # (</h2>)
+[//]: # '<h2 align="center">'
+[//]: # '  <a href="https://kelreel.github.io/huffman-javascript/">DEMO</a>'
+[//]: # '</h2>'
 
 Huffman code is a particular type of optimal prefix code that is commonly used for lossless data compression. This is the implementation of the algorithm on TypeScript.
-  
+
 ## Installation
 
 Clone this repository and install modules:
@@ -28,10 +26,10 @@ npm run dev(or build)
 Let's encode and decode plain text!
 
 ```typescript
-import { getCodesFromText, encode, decode } from './huffman';
+import {getCodesFromText, encode, decode} from './huffman';
 
 /** ENCODING */
-let text: string = 'abracadabra'; 
+let text: string = 'abracadabra';
 let encodedText: string = '';
 
 let codes: Map<string, string> = getCodesFromText(text); // Symbols codes
@@ -41,7 +39,6 @@ encodedText = encodedArray.join(''); // Encoded array to string. Equals 0101100.
 
 /** DECODING */
 text = decode(encodedArray, codes); // Equals 'abracadabra'
-
 ```
 
 ![](assets/split.png)
@@ -49,37 +46,43 @@ text = decode(encodedArray, codes); // Equals 'abracadabra'
 ## APIs
 
 #### Encode text
+
 ```typescript
 encode(text: string, codes: Map<string, string>): Array<string>
 ```
 
 #### Decode text
+
 ```typescript
 decode(text: Array<string>, codes: Map<string, string>):string
 ```
 
 #### Get symbols codes from text
+
 ```typescript
 getCodesFromText(text: string): Map<string, string>
 ```
 
 #### Get symbols frequency
+
 ```typescript
 getFrequency(text: string): Array<any>
 ```
 
 #### Get Huffman Tree from frequency array
+
 ```typescript
 getTree(arr: Array<any>)
 ```
 
 #### Get relative frequency array
+
 ```typescript
 getRelativeFrequency(arr: Array<any>): Array<any>
 ```
 
 #### Get text entropy
+
 ```typescript
 getEntropyOfText(text: string): number
 ```
-

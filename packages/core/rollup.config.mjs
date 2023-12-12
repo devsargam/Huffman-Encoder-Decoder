@@ -13,18 +13,18 @@ const plugins = [typescript({})];
 const input = 'src/index.ts';
 
 export default defineConfig({
-    input,
-    output: [
-        {
-            file: pkg.main,
-            format: 'cjs',
-            sourcemap: true,
-        },
-        {
-            file: pkg.module,
-            format: 'esm',
-            sourcemap: true,
-        },
-    ],
-    plugins,
+  input,
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+    },
+    {
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true,
+    },
+  ],
+  plugins,
 });

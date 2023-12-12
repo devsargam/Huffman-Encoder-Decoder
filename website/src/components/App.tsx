@@ -6,7 +6,7 @@ import {
     encode,
     decode,
 } from 'huffman-javascript';
-import {MouseEvent, useState} from 'react';
+import {useState} from 'react';
 import useTypeWriter from 'react-typewriter-hook';
 
 export const App = (): JSX.Element => {

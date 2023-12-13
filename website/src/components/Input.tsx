@@ -1,10 +1,10 @@
-import {Dispatch, SetStateAction, useRef} from 'react';
+import { Dispatch, SetStateAction, useRef } from 'react';
 
 type InputProps = {
   setText: Dispatch<SetStateAction<string>>;
 };
 
-export const Input = ({setText}: InputProps): JSX.Element => {
+export const Input = ({ setText }: InputProps): JSX.Element => {
   const textInputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
@@ -17,7 +17,7 @@ export const Input = ({setText}: InputProps): JSX.Element => {
       <label
         htmlFor="input"
         autoCorrect="false"
-        style={{fontSize: '40px', textAlign: 'center'}}
+        style={{ fontSize: '40px', textAlign: 'center' }}
       >
         Enter the text you want to encode
       </label>

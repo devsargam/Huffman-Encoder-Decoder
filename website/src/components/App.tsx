@@ -1,7 +1,7 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import useTypeWriter from 'react-typewriter-hook';
-import {Output} from './Output';
-import {Input} from './Input';
+import { Output } from './Output';
+import { Input } from './Input';
 
 export const App = (): JSX.Element => {
   const [text, setText] = useState('');

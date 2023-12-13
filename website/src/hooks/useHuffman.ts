@@ -5,11 +5,11 @@ import {
   getCharsFrequency,
   getTree,
 } from 'huffman-javascript';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 export const useHuffman = (
   text: string,
-): {tree?: TreeNode; encoded?: string[]; decoded?: string} => {
+): { tree?: TreeNode; encoded?: string[]; decoded?: string } => {
   const [tree, setTree] = useState<TreeNode>();
   const [encoded, setEncoded] = useState<string[]>([]);
   const [decoded, setDecoded] = useState('');
@@ -23,5 +23,5 @@ export const useHuffman = (
     console.log(freq);
   }, [text]);
 
-  return {tree, encoded, decoded};
+  return { tree, encoded, decoded };
 };

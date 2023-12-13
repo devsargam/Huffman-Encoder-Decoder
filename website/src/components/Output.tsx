@@ -1,16 +1,16 @@
-import {BeautifulTree} from '@beautiful-tree/react';
-import {useHuffman} from '../hooks/useHuffman';
+import { BeautifulTree } from '@beautiful-tree/react';
+import { useHuffman } from '../hooks/useHuffman';
 
 type OutputProps = {
   text: string;
 };
 
-export const Output = ({text}: OutputProps): JSX.Element => {
-  const {decoded, encoded, tree} = useHuffman(text ?? ' ');
+export const Output = ({ text }: OutputProps): JSX.Element => {
+  const { decoded, encoded, tree } = useHuffman(text ?? ' ');
 
   if (!tree?.node)
     return (
-      <span style={{fontSize: '20px', marginTop: '1rem'}}>
+      <span style={{ fontSize: '20px', marginTop: '1rem' }}>
         Type something to get Started!
       </span>
     );
@@ -20,7 +20,7 @@ export const Output = ({text}: OutputProps): JSX.Element => {
       <BeautifulTree
         id="my-tree"
         tree={tree.node}
-        svgProps={{width: 500, height: 500}}
+        svgProps={{ width: 500, height: 500 }}
         getNodeContent={(data) => {
           return data?.['v']?.toString() === ' '
             ? '_'
